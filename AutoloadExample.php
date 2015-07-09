@@ -2,10 +2,12 @@
 
 namespace dkulinich\elsearch;
 
+use yii\base\Component;
+
 /**
  * This is just an example.
  */
-class AutoloadExample extends \yii\base\Widget
+class AutoloadExample extends Component
 {
     public function run()
     {
