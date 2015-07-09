@@ -11,7 +11,7 @@ class Elasticsearch extends Component
     public $index;
     public $type;
 
-    public function createDocument($node_address, $index, $type, $data, $id = null, $options = [])
+    public static function createDocument($node_address, $index, $type, $data, $id = null, $options = [])
     {
         if (empty($data)) {
             $body = '{}';
