@@ -1,0 +1,21 @@
+{
+    "name": "dkulinich/yii2-elsearch",
+    "description": "Elasticsearch Yii2 Extension",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","elasticsearch","elastic"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Dmitriy Kulinich",
+            "email": "dmitriy@kulinich.kz"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "dkulinich\\elsearch\\": ""
+        }
+    }
+}
