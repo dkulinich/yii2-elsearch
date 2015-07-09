@@ -54,4 +54,31 @@ class Elasticsearch extends Component
 
         return $result;
     }
+
+    public static function putMapping($node_address, $index, $type, $raw)
+    {
+        if (empty($raw)) {
+            $body = '{}';
+        } else {
+            $data = [
+                "{$type}" => [
+                    'properties' => [$raw]
+                ]
+            ];
+            $body = is_array($data) ? Json::encode($data) : $data;
+        }
+
+        $query = curl_init('http://' . $node_address . '/' . $index . '/_mapping/' . $type);
+        curl_setopt($query, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($query, CURLOPT_POSTFIELDS, $body);
+        curl_setopt($query, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($query, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($body))
+        );
+
+        $result = curl_exec($query);
+
+        return $result;
+    }
 }
