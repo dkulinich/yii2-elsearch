@@ -1,6 +1,6 @@
 <?php
 
-namespace dkulinich\elsearch;
+namespace elsearch;
 
 use yii\base\Component;
 use yii\helpers\Json;
