@@ -23,8 +23,8 @@ class Elasticsearch extends Component
         curl_setopt($query, CURLOPT_POSTFIELDS, $body);
         curl_setopt($query, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($query, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($body))
+                              'Content-Type: application/json',
+                              'Content-Length: ' . strlen($body))
         );
         $result = curl_exec($query);
 
@@ -45,8 +45,8 @@ class Elasticsearch extends Component
         curl_setopt($query, CURLOPT_POSTFIELDS, $body);
         curl_setopt($query, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($query, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($body))
+                              'Content-Type: application/json',
+                              'Content-Length: ' . strlen($body))
         );
 
         $result = curl_exec($query);
@@ -61,10 +61,10 @@ class Elasticsearch extends Component
             "query" => [
                 "match_all" => [],
             ],
+            "_source" => false,
             "filter" => [
-                "geo_distance_range" => [
-                    "from" => "0km",
-                    "to" => $radius . "km",
+                "geo_distance" => [
+                    "distance" => $radius . "km",
                     "location" => [
                         "lat" => $lat,
                         "lon" => $lon
@@ -79,8 +79,8 @@ class Elasticsearch extends Component
         curl_setopt($query, CURLOPT_POSTFIELDS, $body);
         curl_setopt($query, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($query, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($body))
+                              'Content-Type: application/json',
+                              'Content-Length: ' . strlen($body))
         );
 
         $result = curl_exec($query);
@@ -107,8 +107,8 @@ class Elasticsearch extends Component
         curl_setopt($query, CURLOPT_POSTFIELDS, $body);
         curl_setopt($query, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($query, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($body))
+                              'Content-Type: application/json',
+                              'Content-Length: ' . strlen($body))
         );
 
         $result = curl_exec($query);
